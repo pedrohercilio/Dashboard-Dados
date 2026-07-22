@@ -15,7 +15,7 @@ st.set_page_config(
 
 
 # --- Carregamento dos dados ---
-df = pd.read_csv("https://raw.githubusercontent.com/vqrca/dashboard_salarios_dados/refs/heads/main/dados-imersao-final.csv")
+df = pd.read_csv("dados.csv")
 
 
 
@@ -115,7 +115,7 @@ with col_graf1:
         )
         grafico_cargos.update_layout(title_x=0.1, yaxis={'categoryorder':'total ascending'})
         # update_layout =  parametro que serve pra mover para a direita o que está selecionado dependendo do valor
-        st.plotly_chart(grafico_cargos, use_container_width=True)
+        st.plotly_chart(grafico_cargos, width="stretch")
         # exibir gráfico;
     else:
         st.warning("Nenhum dado para exibir no gráfico de cargos.")
@@ -130,7 +130,7 @@ with col_graf2:
             labels={'usd': 'Faixa salarial (USD)', 'count': ''}
         )
         grafico_hist.update_layout(title_x=0.1)
-        st.plotly_chart(grafico_hist, use_container_width=True)
+        st.plotly_chart(grafico_hist, width="stretch")
     else:
         st.warning("Nenhum dado para exibir no gráfico de distribuição.")
 
@@ -149,7 +149,7 @@ with col_graf3:
         )
         grafico_remoto.update_traces(textinfo='percent+label')
         grafico_remoto.update_layout(title_x=0.1)
-        st.plotly_chart(grafico_remoto, use_container_width=True)
+        st.plotly_chart(grafico_remoto, width="stretch")
     else:
         st.warning("Nenhum dado para exibir no gráfico dos tipos de trabalho.")
 
@@ -164,7 +164,7 @@ with col_graf4:
             title='Salário médio de Cientista de Dados por país',
             labels={'usd': 'Salário médio (USD)', 'residencia_iso3': 'País'})
         grafico_paises.update_layout(title_x=0.1)
-        st.plotly_chart(grafico_paises, use_container_width=True)
+        st.plotly_chart(grafico_paises, width="stretch")
     else:
         st.warning("Nenhum dado para exibir no gráfico de países.")
 
